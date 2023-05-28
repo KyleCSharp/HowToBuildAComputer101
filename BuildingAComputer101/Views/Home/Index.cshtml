@@ -1,0 +1,95 @@
+﻿﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kyle's PC Builder Guide</title>
+</head>
+<body>
+    <h1>Welcome to Kyle's PC Builder Guide!</h1>
+    <p>This page has been visited <strong>@ViewBag.VisitCount</strong> times.</p>
+
+    <p>This comprehensive guide will assist you in building your own PC. Follow the step-by-step instructions below to create your dream computer setup.</p>
+
+    <iframe width="100%" height="700px" src="https://www.youtube.com/embed/BL4DCEp7blY" title="How to build a PC, the last guide you&#39;ll ever need!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <span>Video credits LTT</span>
+    <h2>Step-by-Step Guide</h2>
+    <ol>
+        <li>
+            Research and plan your PC build. Start by choosing between AMD and Intel processors, considering factors like performance, power consumption, budget, and compatibility. Check out the latest offerings from each brand, such as the Ryzen series from AMD and the Core series from Intel.
+            <a href="https://pcpartpicker.com/" target="_blank" rel="noopener noreferrer">PCPartPicker.com</a>
+        </li>
+        <img src="Images/IntelVSAMD.jpg" alt="IntelVsAMD">
+        <li>
+            Select a budget-friendly motherboard that complements your chosen CPU. For AMD processors, consider options like the AMD B450, B550, or X570 chipset motherboards. If you prefer Intel, look into motherboards with Intel H310 or B360 chipset. Ensure compatibility with other components and consider features you need, such as Wi-Fi support.
+        </li>
+        <li>
+            Choose your desired components, including the GPU, RAM, storage, etc. Pay attention to compatibility between the components. For example, if you select an AMD Ryzen 3900XT CPU, you'll need DDR4 RAM. However, if you plan to use upcoming Ryzen 7000 processors, you must use DDR5 RAM, and your motherboard should support this.
+        </li>
+        <img src="Images/Nvidia-vs.jpg" alt="NvidiaVsAMD">
+        <li>Then power supply I suggest anything thats a gold or plat 80 plus for safty and energy efficient </li>
+        <li>And lastly the case this is all up to based on fitment</li>
+        <li>
+
+            Make a budget and set spending limits for each component. It's essential to balance performance and cost based on your requirements.
+        </li>
+        <li>
+            Order or purchase the components from reliable sources. Online platforms like newegg and trusted retailers such as Amazon can help you find the best deals and ensure component compatibility.
+            <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer"><img src="Images/amazon.png" alt="Amazon"></a>
+            <a href="https://pcpartpicker.com/" target="_blank" rel="noopener noreferrer">
+                <img src="Images/PCPartPicker_logo_dark.png" alt="pcpartpickerlogo">
+            </a>
+            <a href="https://www.newegg.com/" target="_blank" rel="noopener noreferrer"><img src="Images\Newegg_logo.png" alt="NewEgg"></a>
+
+
+        </li>
+        <li>
+            Assemble your PC following the manufacturer's instructions. If you need guidance, refer to the helpful video guide provided above. It will walk you through the entire process of building a PC.
+        </li>
+        <li>
+            Install the operating system and necessary drivers for your PC. Ensure you have the latest versions to optimize performance and compatibility.
+        <li>
+            Here is a link for you to make your own bootable usb drive for windows
+            <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer"> <img src="Images\Screenshot 2023-05-28 135248.png" alt="usbwininstall"></a>
+        </li>
+
+        <iframe width="100%" height="400" src="https://www.youtube.com/embed/sCl62KLjsAc" title="How to Install Windows 11 on your NEW PC! (And how to activate it)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </li>
+        <li>
+            Customize your PC's settings and personalize it according to your preferences. Configure software, install applications, and customize visual elements to create your ideal computing environment.
+        </li>
+        <li>
+            Test your PC thoroughly to ensure all components are functioning properly. Run diagnostics, stress tests, and benchmarking tools to verify stability and performance.
+        </li>
+        <li>
+            Congratulations! Your newly built PC is ready for use. Enjoy your personalized computing experience and unleash the power of your custom-built machine.
+        </li>
+    </ol>
+
+
+
+    @*this is a test for a rebuild*@
+
+
+
+    <div class="sticky-note">
+        <textarea id="note-text" placeholder="Write your note here..."></textarea>
+        <button onclick="saveNote()">Save</button>
+    </div>
+
+    <script>
+        function saveNote() {
+            var noteText = document.getElementById("note-text").value;
+            var blob = new Blob([noteText], { type: "text/plain" });
+            var url = URL.createObjectURL(blob);
+            var link = document.createElement("a");
+            link.href = url;
+            link.download = "note.txt";
+            link.click();
+        }
+    </script>
+</body>
+</html>
