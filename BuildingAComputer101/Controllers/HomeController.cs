@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.IO;
 
 namespace HowToBuildPC.Controllers
 {
@@ -21,17 +22,19 @@ namespace HowToBuildPC.Controllers
         {
             int visitCount = 0;
 
-            // Retrieve the current visit count from cache
-            if (_memoryCache.TryGetValue<int>("VisitCount", out int cachedVisitCount))
+            // Read the visit count from the text file
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "visitcount.txt");
+            if (System.IO.File.Exists(filePath))
             {
-                visitCount = cachedVisitCount;
+                string countText = System.IO.File.ReadAllText(filePath);
+                int.TryParse(countText, out visitCount);
             }
 
             // Increment the visit count
             visitCount++;
 
-            // Store the updated visit count in cache
-            _memoryCache.Set("VisitCount", visitCount);
+            // Store the updated visit count in the text file
+            System.IO.File.WriteAllText(filePath, visitCount.ToString());
 
             // Pass the visit count to the view
             ViewBag.VisitCount = visitCount;
